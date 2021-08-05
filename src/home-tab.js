@@ -1,17 +1,38 @@
+import Img from './tea-cup.jpg';
+
 function homeTab(content) {
     const homeContent = document.createElement('div');
-    const title = document.createElement('header');
+    const title = document.createElement('h1');
+    const img = new Image();
     const copy = document.createElement('p');
-    const review = document.createElement('p');
+    const hours = document.createElement('div');
+    const location = document.createElement('div');
 
-    title.textContent = 'Awesome Restaurant';
-    copy.textContent = 'Fresh, locally-sourced goodness. Love your body, love your food.';
-    review.textContent = '"The best food ever!" -every single customer';
-    //document.body.style.backgroundImage = "url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Tom%27s_Restaurant%2C_NYC.jpg/1024px-Tom%27s_Restaurant%2C_NYC.jpg')";
+    homeContent.classList.add('tab-style');
+    
+    title.classList.add('headings');
+    title.textContent = "Tiffany's Tea House";
+
+    img.src = Img;
+    
+    copy.classList.add('info');
+    copy.textContent = `We offer a wide selection of premium teas, ethically sourced from around the world.
+    Join us in our lovely tea room for traditional Afternoon Tea every day and for Elevenses 
+    every Saturday and Sunday.`
+    
+    hours.classList.add('info');
+    hours.textContent = `Hours:
+    Monday - Friday: 12pm - 5pm
+    Saturday & Sunday: 10am - 5pm`
+    
+    location.classList.add('footer');
+    location.textContent = `123 Royal Avenue, Alexandria, VA 22206`
 
     homeContent.appendChild(title);
+    homeContent.appendChild(img);
     homeContent.appendChild(copy);
-    homeContent.appendChild(review);
+    homeContent.appendChild(hours);
+    homeContent.appendChild(location);
     content.appendChild(homeContent);
 }
 

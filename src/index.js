@@ -1,11 +1,12 @@
 import './style.css';
+import './greyfloral.png';
 import { homeTab } from './home-tab';
 import { contactTab } from './contact-tab';
 import { menuTab } from './menu-tab';
 
 function createTabs(content) {
     const allTabs = document.createElement('div');
-    allTabs.classList.add('all-tabs');
+    allTabs.id = 'all-tabs';
     const tabList = ['Home', 'Menu', 'Contact'];
 
     tabList.forEach(function(tab) {
@@ -19,24 +20,26 @@ function createTabs(content) {
 }
 
 function clearDom(parent) {
-
-    for (const child of parent.children) {
-        if (child.className != 'all-tabs') {
-            parent.removeChild(child);
-        }
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
     }
 }
 
 const content = document.querySelector('#content');
+const tabsContainer = document.createElement('div');
+tabsContainer.id = 'tabs-container';
 const allTabs = createTabs(content);
+content.appendChild(tabsContainer);
+
+homeTab(tabsContainer);
 
 allTabs.addEventListener('click', (e) => {
-    clearDom(content);
+    clearDom(tabsContainer);
     if (e.target.textContent === 'Menu') {
-        menuTab(content);
+        menuTab(tabsContainer);
     } else if (e.target.textContent === 'Contact') {
-        contactTab(content);
+        contactTab(tabsContainer);
     } else {
-        homeTab(content);
+        homeTab(tabsContainer);
     }
 })

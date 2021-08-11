@@ -1,23 +1,9 @@
 import './style.css';
 import './greyfloral.png';
+import { createTabs, darkenTabs} from './all-tabs';
 import { homeTab } from './home-tab';
 import { contactTab } from './contact-tab';
 import { menuTab } from './menu-tab';
-
-function createTabs(content) {
-    const allTabs = document.createElement('div');
-    allTabs.id = 'all-tabs';
-    const tabList = ['Home', 'Menu', 'Contact'];
-
-    tabList.forEach(function(tab) {
-        let newTab = document.createElement('button');
-        newTab.textContent = tab;
-        allTabs.appendChild(newTab);
-    })
-
-    content.appendChild(allTabs);
-    return allTabs;
-}
 
 function clearDom(parent) {
     while (parent.firstChild) {
@@ -25,34 +11,30 @@ function clearDom(parent) {
     }
 }
 
-function darkenTabs(allTabs, selectedTab) {
+function pageStartUp() {
+    const content = document.querySelector('#content');
+    const allTabs = createTabs(content);
 
-    allTabs.childNodes.forEach(function(tab) {
-        if (tab.textContent != selectedTab) {
-            tab.classList.add('unselected');
-        } else {
-            tab.classList.remove('unselected');
-        }
-    })
+    const contContainer = document.createElement('div');
+    contContainer.id = 'cont-container';
+    content.appendChild(contContainer);
+
+    homeTab(contContainer);
+    darkenTabs(allTabs, 'Home');
+
+    return [contContainer, allTabs];
 }
 
-const content = document.querySelector('#content');
-const tabsContainer = document.createElement('div');
-tabsContainer.id = 'tabs-container';
-const allTabs = createTabs(content);
-content.appendChild(tabsContainer);
-
-homeTab(tabsContainer);
-darkenTabs(allTabs, 'Home');
+const [contContainer, allTabs] = pageStartUp();
 
 allTabs.addEventListener('click', (e) => {
-    clearDom(tabsContainer);
+    clearDom(contContainer);
     darkenTabs(allTabs, e.target.textContent);
     if (e.target.textContent === 'Menu') {
-        menuTab(tabsContainer);
+        menuTab(contContainer);
     } else if (e.target.textContent === 'Contact') {
-        contactTab(tabsContainer);
+        contactTab(contContainer);
     } else {
-        homeTab(tabsContainer);
+        homeTab(contContainer);
     }
 })

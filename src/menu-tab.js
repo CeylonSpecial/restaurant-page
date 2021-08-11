@@ -51,6 +51,7 @@ const sectionTwo = (() => {
         name.classList.add('sub-headings');
         name.textContent = menuItems[item].name;
         section.appendChild(name)
+        
         const selection = document.createElement('p');
         menuItems[item].selection.forEach(element => {
             selection.textContent += element + '\r\n';

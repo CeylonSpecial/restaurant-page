@@ -51,7 +51,7 @@ button:hover {
     filter: brightness(100%);
 }
 
-#tabs-container {
+#cont-container {
     margin-top: 0px;
     background-color: white;
     text-align: center;

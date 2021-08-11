@@ -9,24 +9,25 @@ function homeTab(content) {
     const location = document.createElement('div');
 
     homeContent.classList.add('tab-style');
-    
-    title.classList.add('headings');
+  
     title.textContent = "Tiffany's Tea House";
 
     img.src = Img;
     
     copy.classList.add('info');
-    copy.textContent = `We offer a wide selection of premium teas, ethically sourced from around the world.
-    Join us in our lovely tea room for traditional Afternoon Tea every day and for Elevenses 
-    every Saturday and Sunday.`
+    copy.textContent = `The most authentic British Tea experience on this side of the pond! 
+    We offer a wide selection of premium teas, ethically sourced from 
+    around the world. Join us in our lovely tea room for traditional 
+    Afternoon Tea every day from 12 - 5pm.`
     
     hours.classList.add('info');
-    hours.textContent = `Hours:
-    Monday - Friday: 12pm - 5pm
-    Saturday & Sunday: 10am - 5pm`
+    hours.textContent = `Hours
+    Monday - Sunday: 12pm - 5pm`
     
     location.classList.add('footer');
-    location.textContent = `123 Royal Avenue, Alexandria, VA 22206`
+    location.textContent = `Location
+    123 Royal Avenue, Alexandria, VA 22206
+    `
 
     homeContent.appendChild(title);
     homeContent.appendChild(img);

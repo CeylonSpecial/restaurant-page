@@ -25,6 +25,17 @@ function clearDom(parent) {
     }
 }
 
+function darkenTabs(allTabs, selectedTab) {
+
+    allTabs.childNodes.forEach(function(tab) {
+        if (tab.textContent != selectedTab) {
+            tab.classList.add('unselected');
+        } else {
+            tab.classList.remove('unselected');
+        }
+    })
+}
+
 const content = document.querySelector('#content');
 const tabsContainer = document.createElement('div');
 tabsContainer.id = 'tabs-container';
@@ -32,9 +43,11 @@ const allTabs = createTabs(content);
 content.appendChild(tabsContainer);
 
 homeTab(tabsContainer);
+darkenTabs(allTabs, 'Home');
 
 allTabs.addEventListener('click', (e) => {
     clearDom(tabsContainer);
+    darkenTabs(allTabs, e.target.textContent);
     if (e.target.textContent === 'Menu') {
         menuTab(tabsContainer);
     } else if (e.target.textContent === 'Contact') {

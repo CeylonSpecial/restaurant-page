@@ -7,7 +7,7 @@ function contactTab(content) {
     title.textContent = 'Get In Touch!';
     title.classList.add('headings');
     phone.textContent = '555-555-5555';
-    email.textContent = 'AwesomeRestaurant@AwesomeRestaurant.com';
+    email.textContent = 'contact@TiffanysTeaHouse.com';
 
     contactInfo.appendChild(title);
     contactInfo.appendChild(phone);

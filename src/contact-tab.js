@@ -29,7 +29,6 @@ function createForm() {
             const label = document.createElement('label');
             label.htmlFor = input.toLowerCase();
             field.name = input.toLowerCase();
-            field.id = input.toLowerCase();
         } else {
             field = document.createElement('input');
         }

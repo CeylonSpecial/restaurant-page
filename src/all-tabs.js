@@ -5,6 +5,7 @@ function createTabs(content) {
 
     tabList.forEach(function(tab) {
         let newTab = document.createElement('button');
+        newTab.classList.add('tab-buttons');
         newTab.textContent = tab;
         allTabs.appendChild(newTab);
     })
